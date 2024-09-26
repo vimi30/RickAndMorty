@@ -35,7 +35,7 @@ kotlin {
         val desktopMain by getting
         
         androidMain.dependencies {
-            implementation("androidx.compose.ui:ui-tooling-preview")
+            implementation(libs.androidx.ui.tooling.preview)
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             //ktor client

@@ -15,10 +15,8 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.example.rammultiplatform.components.commons.ErrorComponent
 import org.example.rammultiplatform.components.commons.UiState
 import org.example.rammultiplatform.repository.CharacterRepository
-import org.example.rammultiplatform.util.Error
 import org.example.rammultiplatform.util.onError
 import org.example.rammultiplatform.util.onSuccess
 

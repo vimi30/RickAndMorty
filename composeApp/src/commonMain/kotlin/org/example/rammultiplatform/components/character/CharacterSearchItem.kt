@@ -21,7 +21,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.network.models.domain.Character
-import org.example.rammultiplatform.components.character.CharacterImageComponent
 import org.example.rammultiplatform.util.BrightYellow
 import org.example.rammultiplatform.util.RichPurple
 
