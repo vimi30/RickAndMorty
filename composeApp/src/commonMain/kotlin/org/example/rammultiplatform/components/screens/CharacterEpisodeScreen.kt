@@ -18,12 +18,12 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.flow.StateFlow
 import org.example.rammultiplatform.components.character.CharacterImageComponent
 import org.example.rammultiplatform.components.character.CharacterNameComponent
@@ -44,7 +44,7 @@ fun CharacterEpisodeScreen(
     screenState: StateFlow<CharacterEpisodesState>
 ) {
 
-    val currentViewState by screenState.collectAsState()
+    val currentViewState by screenState.collectAsStateWithLifecycle()
 
     LaunchedEffect(key1 = Unit, block = {
         fetchCharacter(characterId)

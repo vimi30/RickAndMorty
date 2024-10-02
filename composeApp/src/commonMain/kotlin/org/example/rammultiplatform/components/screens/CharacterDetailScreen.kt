@@ -1,5 +1,6 @@
 package org.example.rammultiplatform.components.screens
 
+//import coil.compose.SubcomposeAsyncImage
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,7 +20,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -27,15 +27,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.SubcomposeAsyncImage
-//import coil.compose.SubcomposeAsyncImage
+import kotlinx.coroutines.flow.StateFlow
 import org.example.rammultiplatform.components.character.CharacterDetailsNamePlateComponent
 import org.example.rammultiplatform.components.commons.DataPointComponent
 import org.example.rammultiplatform.components.commons.ErrorComponent
 import org.example.rammultiplatform.components.commons.LoadingState
 import org.example.rammultiplatform.components.commons.SimpleToolBar
 import org.example.rammultiplatform.components.commons.UiState
-import kotlinx.coroutines.flow.StateFlow
 import org.example.rammultiplatform.util.PortalGreen
 import org.example.rammultiplatform.viewmodels.CharacterDetailsState
 
@@ -48,7 +48,7 @@ fun CharacterDetailsScreen(
     fetchCharacter: (Int) -> Unit
 ) {
 
-    val characterViewState by screenState.collectAsState()
+    val characterViewState by screenState.collectAsStateWithLifecycle()
 
     LaunchedEffect(key1 = Unit, block = {
         fetchCharacter(characterId)

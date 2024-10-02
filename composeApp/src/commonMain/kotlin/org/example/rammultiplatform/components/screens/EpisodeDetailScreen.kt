@@ -13,12 +13,12 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.flow.StateFlow
 import org.example.rammultiplatform.components.character.CharacterGridItem
 import org.example.rammultiplatform.components.commons.ErrorComponent
@@ -37,7 +37,7 @@ fun EpisodeDetailScreen(
     screenState: StateFlow<EpisodeDetailState>,
     fetchEpisode: (Int) -> Unit
 ) {
-    val viewState by screenState.collectAsState()
+    val viewState by screenState.collectAsStateWithLifecycle()
 
     LaunchedEffect(key1 = Unit) {
         fetchEpisode(episodeId)

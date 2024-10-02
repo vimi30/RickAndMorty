@@ -13,12 +13,12 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.network.models.domain.Character
 import kotlinx.coroutines.flow.StateFlow
 import org.example.rammultiplatform.components.character.CharacterGridItem
@@ -36,7 +36,7 @@ fun HomeScreen(
     fetchInitialCharacterPage: () -> Unit,
     fetchNextCharacterPage: () -> Unit
 ) {
-    val viewState by screenState.collectAsState()
+    val viewState by screenState.collectAsStateWithLifecycle()
 
     LaunchedEffect(key1 = Unit, block = {
         fetchInitialCharacterPage()

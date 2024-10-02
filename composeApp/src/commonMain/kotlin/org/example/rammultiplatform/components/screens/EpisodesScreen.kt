@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.network.models.domain.Episode
 import com.example.ram.components.episode.EpisodeListItem
 import kotlinx.coroutines.flow.StateFlow
@@ -35,7 +35,7 @@ fun EpisodeScreen(
     fetchInitialEpisodePage: () -> Unit,
     fetchNextEpisodePage: () -> Unit
 ) {
-    val viewState by screenState.collectAsState()
+    val viewState by screenState.collectAsStateWithLifecycle()
 
     val scrollState = rememberLazyListState()
 
